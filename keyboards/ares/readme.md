@@ -1,5 +1,3 @@
-B.fake
-========
 
 A 60% keyboard with RGB. The B.fake pcb is a copy of the B.face PCB sold by [winkeyless](https://winkeyless.kr/). However, the switch matrix is actually the same as the [FaceW](https://github.com/qmk/qmk_firmware/tree/master/keyboards/facew), a ps2avr PCB sold on [mechanicalkeyboards.com](https://mechanicalkeyboards.com/). 
 
@@ -10,6 +8,17 @@ Hardware Availability: https://www.aliexpress.com/store/product/bface-60-RGB-und
 Make example for this keyboard (after setting up your build environment):
 
     make bfake:default
+=======
+lSJ Ares
+========
+
+Keyboard Maintainer: QMK Community  
+Hardware Supported: LSJ Ares PCB
+Hardware Availability: https://geekhack.org/index.php?topic=93146.0
+
+Make example for this keyboard (after setting up your build environment):
+
+    make ares:default
 
 Flashing
 
@@ -17,7 +26,7 @@ ps2avr(GB) boards use an atmega32a microcontroller and a different bootloader. I
 
 Windows: 
 1. Download [HIDBootFlash](http://vusb.wikidot.com/project:hidbootflash).
-2. Place your keyboard into reset. 
+2. Place your keyboard into reset by holding the left control key and plugging the cable in. 
 3. Press the `Find Device` button and ensure that your keyboard is found.
 4. Press the `Open .hex File` button and locate the `.hex` file you created.
 5. Press the `Flash Device` button and wait for the process to complete. 
@@ -35,7 +44,7 @@ macOS:
     ```
     brew install python
     brew install pyusb
-    brew install --HEAD`https://raw.githubusercontent.com/robertgzr/homebrew-tap/master/bootloadhid.rb
+    brew install --HEAD https://raw.githubusercontent.com/robertgzr/homebrew-tap/master/bootloadhid.rb
 
 4. Place your keyboard into reset. 
 5. Flash the board by typing `bootloadHID -r` followed by the path to your `.hex` file. 
