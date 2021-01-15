@@ -1,5 +1,5 @@
 /*
-Copyright 2017 Luiz Ribeiro <luizribeiro@gmail.com>
+Copyright 2016 Luiz Ribeiro <luizribeiro@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,20 +15,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "ares.h"
+// Please do not modify this file 
 
-void keyboard_pre_init_kb(void) {
-    led_init_ports();
-    keyboard_pre_init_user();
-}
+#ifndef __I2C_H__
+#define __I2C_H__
 
-void led_init_ports(void) {
-    setPinOutput(D1);
-}
+void i2c_init(void);
+void i2c_set_bitrate(uint16_t bitrate_khz);
+uint8_t i2c_send(uint8_t address, uint8_t *data, uint16_t length);
 
-bool led_update_kb(led_t led_state) {
-    if (led_update_user(led_state)) {
-        writePin(D1, led_state.caps_lock);
-    }
-    return true;
-}
+#endif

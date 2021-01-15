@@ -1,5 +1,8 @@
 /*
-Copyright 2017 Luiz Ribeiro <luizribeiro@gmail.com>
+This is the c configuration file for the keymap
+
+Copyright 2012 Jun Wako <wakojun@gmail.com>
+Copyright 2015 Jack Humbert
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,20 +18,27 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "ares.h"
+#pragma once
 
-void keyboard_pre_init_kb(void) {
-    led_init_ports();
-    keyboard_pre_init_user();
-}
+//#define USE_MATRIX_I2C
 
-void led_init_ports(void) {
-    setPinOutput(D1);
-}
+/* Select hand configuration */
 
-bool led_update_kb(led_t led_state) {
-    if (led_update_user(led_state)) {
-        writePin(D1, led_state.caps_lock);
-    }
-    return true;
-}
+#define MASTER_LEFT
+// #define MASTER_RIGHT
+// #define EE_HANDS
+
+#define SSD1306OLED
+
+#define USE_SERIAL_PD2
+
+#define TAPPING_FORCE_HOLD
+#define TAPPING_TERM 100
+
+#undef RGBLED_NUM
+#define RGBLIGHT_ANIMATIONS
+#define RGBLED_NUM 27
+#define RGBLIGHT_LIMIT_VAL 120
+#define RGBLIGHT_HUE_STEP 10
+#define RGBLIGHT_SAT_STEP 17
+#define RGBLIGHT_VAL_STEP 17

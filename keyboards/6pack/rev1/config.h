@@ -1,5 +1,5 @@
 /*
-Copyright 2017 Luiz Ribeiro <luizribeiro@gmail.com>
+Copyright 2012 Jun Wako <wakojun@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,20 +15,22 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "ares.h"
+#ifndef REV1_CONFIG_H
+#define REV1_CONFIG_H
 
-void keyboard_pre_init_kb(void) {
-    led_init_ports();
-    keyboard_pre_init_user();
-}
+#include "../config.h"
 
-void led_init_ports(void) {
-    setPinOutput(D1);
-}
+#define DEVICE_VER      0x0001
 
-bool led_update_kb(led_t led_state) {
-    if (led_update_user(led_state)) {
-        writePin(D1, led_state.caps_lock);
-    }
-    return true;
-}
+/* Let's Macro V2 pin-out */
+#define MATRIX_ROW_PINS { F6, F7 }
+#define MATRIX_COL_PINS { D1, D0, B1 }
+#define UNUSED_PINS
+
+#define DIODE_DIRECTION COL2ROW
+
+#define NUMBER_OF_ENCODERS 1
+#define ENCODERS_PAD_B { F5 }
+#define ENCODERS_PAD_A { F4 }
+
+#endif
